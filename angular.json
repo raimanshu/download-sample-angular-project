@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/npm-styles.scss",
               "src/styles.css"
             ],
             "scripts": []

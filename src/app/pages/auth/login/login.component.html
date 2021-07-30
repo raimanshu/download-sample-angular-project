@@ -1,0 +1,37 @@
+<div class="container my-2">
+
+    <form [formGroup]="signinForm" (ngSubmit)="signin()">
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input id="email" class="form-control form-control-rounded" formControlName="email"
+                [ngClass]="{'is-invalid': (sub || f.email.touched) && f.email.errors}" type="email">
+            <div *ngIf="(sub || f.email.touched) && f.email.errors" class="invalid-feedback mx-2">
+                <div *ngIf="f.email.errors.required">
+                    Enter the Email
+                </div>
+                <div *ngIf="f.email.errors.invalidEmail">
+                    Email must be a valid email address
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" class="form-control form-control-rounded" formControlName="password"
+                [ngClass]="{'is-invalid': (sub || f.password.touched) && f.password.errors}" type="password">
+            <div *ngIf="(sub || f.password.touched) && f.password.errors" class="invalid-feedback mx-2">
+                <div *ngIf="f.password.errors.required">
+                    Enter the Password
+                </div>
+                <div *ngIf="f.password.errors.minlength">
+                    Password must be at least 6 characters
+                </div>
+            </div>
+        </div>
+        
+        <!-- <button type="submit" class="btn btn-rounded btn-primary btn-block mt-2">Sign In</button> -->
+        <button class="btn btn-primary btn-rounded btn-block mt-3">
+            Sign In
+        </button>
+    </form>
+</div>
